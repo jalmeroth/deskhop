@@ -142,6 +142,14 @@ void extract_data(hid_interface_t *iface, report_val_t *val) {
          .dst          = &iface->mouse.buttons,
          .id           = &iface->mouse.report_id},
 
+        {.usage_page   = HID_USAGE_PAGE_BUTTON,
+         .global_usage = HID_USAGE_DESKTOP_MOUSE,
+         .usage        = 0x0, // none
+         .handler      = handle_buttons,
+         .receiver     = process_mouse_report,
+         .dst          = &iface->mouse.buttons,
+         .id           = &iface->mouse.report_id},
+
         {.usage_page   = HID_USAGE_PAGE_DESKTOP,
          .global_usage = HID_USAGE_DESKTOP_MOUSE,
          .usage        = HID_USAGE_DESKTOP_X,
